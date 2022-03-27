@@ -71,4 +71,4 @@ def mergeSort(board):
             j += 1
             k += 1
 
-        return board
+    return board
