@@ -1,4 +1,4 @@
-from sorting import selectionSort, quickSort
+from sorting import selectionSort, quickSort, bubbleSort, mergeSort
 import time
 import gc
 
@@ -49,5 +49,37 @@ def get_quick_times():
     return times
 
 
+def get_bubble_times():
+    times = []
+    for set in data:
+        gc_old = gc.isenabled()
+        gc.disable()
+
+        start = time.process_time()
+        bubbleSort(set)
+        stop = time.process_time()
+        times.append(stop - start)
+        if gc_old:
+            gc.enable()
+    return times
+
+
+def get_merge_times():
+    times = []
+    for set in data:
+        gc_old = gc.isenabled()
+        gc.disable()
+
+        start = time.process_time()
+        mergeSort(set)
+        stop = time.process_time()
+        times.append(stop - start)
+        if gc_old:
+            gc.enable()
+    return times
+
+
 print(f"Quicksort times: {get_quick_times()}")
+print(f"Mergesort times: {get_merge_times()}")
 print(f"Selectionsort times: {get_selection_times()}")
+print(f"Bubblesort times: {get_bubble_times()}")

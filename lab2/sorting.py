@@ -30,3 +30,45 @@ def quickSort(data):
         return data
 
     return sort(data, 0, len(data) - 1)
+
+
+def bubbleSort(board):
+    for i in range(len(board) - 1):
+        for j in range(0, len(board) - i - 1):
+            if board[j] > board[j + 1]:
+                board[j], board[j + 1] = board[j + 1], board[j]
+
+    return board
+
+
+def mergeSort(board):
+    if len(board) > 1:
+        mid = len(board) // 2
+        left = board[:mid]
+        right = board[mid:]
+
+        mergeSort(right)
+        mergeSort(left)
+
+        i = j = k = 0
+
+        while i < len(left) and j < len(right):
+            if left[i] < right[j]:
+                board[k] = left[i]
+                i += 1
+            else:
+                board[k] = right[j]
+                j += 1
+            k += 1
+
+        while i < len(left):
+            board[k] = left[i]
+            i += 1
+            k += 1
+
+        while j < len(right):
+            board[k] = right[j]
+            j += 1
+            k += 1
+
+        return board
