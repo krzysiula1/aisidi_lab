@@ -16,6 +16,8 @@ keys, values = times["selectionsort"].keys(), times["selectionsort"].values()
 plt.plot(keys, values, "o-", label="selection sorting", ms=2)
 
 plt.title(label="sorting")
+plt.xlabel("Number of words")
+plt.ylabel("Time (s)")
 plt.xticks(rotation=30, fontsize="xx-small", horizontalalignment="right")
 plt.xscale("log")
 plt.legend()
