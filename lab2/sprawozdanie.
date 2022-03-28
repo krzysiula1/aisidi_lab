@@ -1,0 +1,57 @@
+---Krótki opis i sposób implementacji---
+
+1. BUBBLE SORT
+
+Bubble sort to jedna z najprostszych, najmniej złożonych metod sortowania, która polega
+jedynie na iterowaniu po kolejnych elementach tablicy. Ta metoda porównuje ze sobą dwa
+kolejne elementy i jeśli element, który występuje później jest mniejszy od poprzedniego,
+to zamienia ich kolejności. Sortowanie kończy się, kiedy przy iteracji tablica nie uległa
+zadnym zmianom.
+
+2. SELECTION SORT
+
+Selection sort, tak samo jak bubble sort równiez nalezy do najprostszych metod sortowania 
+oraz takze polega na iteracji po kolejnych elementach tablicy. Metoda szuka najmniejszego elementu 
+w całej tablicy i wystawia go na następny element posortowanej tablicy (od początku tablicy).
+
+3. MERGE SORT
+
+Merge sort jest bardziej złożoną oraz wydajną metodą od wyzej wymienionych. Złozonosc oraz w
+rezultacie szybkość tej metody sortowania polega na wykorzystaniu rekurencji. Główną ideą działania
+algorytmu jest dzielenie tablicy na coraz mniejsze zbiory, aż do uzyskania samych zsbiorów jednoelementowych
+(które same zawsze są posortowane). Następnie proces się odwraca i zbiory łączą się ze sobą ponownie jednocześnie
+się sortując. 
+NOTE: Merge sort wykorzystuje fakt, ze dla mniejszych tablc jest duzo krótszy czas sortowania, więc przez sortowaniu
+duzej tablicy poszczegolne sortowanie pod-tablic będzie duo bardziej efektywne.
+
+4. QUICKSORT
+
+Quicksort podobnie jak mergesort oparty jest na metodzie dziel i zwyciężaj. Algorytm nie jest stabilny. Algorytm ma działanie rekurencyjnie, w każdym przebiegu wybieramy element zwany pivotem do którego porównujemy wszystkie inne, oraz ustawiamy flagę granicy między elementami mniejszymi i większymi od pivata, przechodzimy przez całą tablicę i jeżeli dany element jest mniejszy od pivota zostawiamy go na miejsce, a jeżeli większy zamieniamy go miejscami z pierwszym elementem na prawo od granicy i przestawiamy granicę. W efekcie otrzymujemy tablicę elementów mniejszych od pivota, pivot jako pojedyńczy element oraz tablicę elementów większych od pivota. Następnie wykonujemy algorymt na obu tablicach do momentu gdy nie otrzymamy pojedyńczych elementów.
+
+
+---Porównanie złożoności algorytmu---
+
+TEORETYCZNA:
+
+Merge sort --> optymistyczna: O(n log(n)), średnia: O(n log(n)), pesymistyczna: O(n log(n))
+Quicksort --> optymistyczna: O(n log(n)), średnia: O(n log(n)), pesymistyczna: O(n^2)
+Selection sort --> optymistyczna: O(n^2), średnia: O(n^2), pesymistyczna: O(n^2)
+Bubble sort --> optymistyczna: n, średnia: O(n^2), pesymistyczna: O(n^2)
+
+
+DANE UZYSKANE DOŚWIATCZALNIE:     #Patrz wykresy
+
+(od najszybszego)
+1. Merge sort --> O(n log(n)) - (ciężko ocenić po wykresie z jedynie 10 pomiarami, ale jest to prawdopodobny wynik)
+2. Quicksort --> O(n log(n)) - (ciężko ocenić po wykresie z jedynie 10 pomiarami, ale jest to prawdopodobny wynik)
+3. Selection sort --> O(n^2) - 
+4. Bubble sort --> O(n^2) - 
+
+
+---Wnioski---
+
+Kazdy algorytm sortowania zadziałał tak jak powinien w teorii:
+--> dla Merge sort i Quicksort czas wykonania był najkrótszy z malutką, prawie niezauwzalną
+przewagą Merge sort nad Quicksort.
+--> dla Bubble sort i Selection sort czas wykonania był nieporównywalnie większy od sortowań Merge i Quick,
+z przewagą selection sort nad bubble sort.
