@@ -5,7 +5,7 @@ import gc
 import json
 
 
-def check_insert_time(data, arny):
+def check_push_time(data, arny):
     times = {}
     for set in data:
         gc_old = gc.isenabled()
@@ -13,7 +13,7 @@ def check_insert_time(data, arny):
         heap = Heap(arny)
         start = time.process_time()
         for value in data[set]:
-            heap.insert(value)
+            heap.push(value)
         stop = time.process_time()
         times[set] = stop - start
         if gc_old:
@@ -22,17 +22,17 @@ def check_insert_time(data, arny):
     print(arny)
     return times
 
-def check_remove_time(data, arny):
+def check_pop_time(data, arny):
     times = {}
     for set in data:
         gc_old = gc.isenabled()
         gc.disable()
         heap = Heap(arny)
         for value in data[set]:
-            heap.insert(value)
+            heap.push(value)
         start = time.process_time()
         for i in range(set):
-            heap.remove_top()
+            heap.pop()
         stop = time.process_time()
         times[set] = stop - start
         if gc_old:
@@ -61,14 +61,14 @@ def get_times():
     }
 
     times = {}
-    times['insert'] = {}
-    times['remove'] = {}
-    times["insert"]['2'] = check_insert_time(data, 2)
-    times["insert"]['3'] = check_insert_time(data, 3)
-    times["insert"]['4'] = check_insert_time(data, 4)
-    times["remove"]['2'] = check_remove_time(data, 2)
-    times["remove"]['3'] = check_remove_time(data, 3)
-    times["remove"]['4'] = check_remove_time(data, 4)
+    times['push'] = {}
+    times['pop'] = {}
+    times["push"]['2'] = check_push_time(data, 2)
+    times["push"]['3'] = check_push_time(data, 3)
+    times["push"]['4'] = check_push_time(data, 4)
+    times["pop"]['2'] = check_pop_time(data, 2)
+    times["pop"]['3'] = check_pop_time(data, 3)
+    times["pop"]['4'] = check_pop_time(data, 4)
 
     with open("lab4/times.json", "w") as file:
         json.dump(times, file)
