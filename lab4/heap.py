@@ -192,16 +192,3 @@ class Heap(AbstractHeap):
     def get_raw_data(self):
         return self.values
 
-
-heap = Heap(2)
-
-print(heap.pop())
-heap.push(1)
-heap.push(2)
-heap.push(3)
-print(heap.pop())
-heap.push(4)
-heap.push(5)
-heap.push(6)
-print(heap.pop())
-print(heap.pop())
