@@ -1,6 +1,6 @@
+from abstract_heap import AbstractHeap
 
-
-class Heap():
+class Heap(AbstractHeap):
     def __init__(self, arny):
         self.values = []
         self.length = 0
@@ -13,7 +13,10 @@ class Heap():
             return self.get_string_complex()
         return self.get_string_simple()
     
-    def insert(self, value):
+    def __len__(self) -> int:
+        return self.length
+
+    def push(self, value):
         self.values.append(value)
         self.move_up(self.length)
         self.length+=1
@@ -163,12 +166,6 @@ class Heap():
                 return False
         return True
     
-    def remove_top(self):
-        self.length -= 1
-        self.values[0] = self.values[self.length]
-        del self.values[self.length]
-        self.move_down(0)
-
     def move_down(self, index):
         max_child = self.get_max_child(index)
         if max_child:
@@ -176,3 +173,17 @@ class Heap():
                 self.swap(index, max_child)
                 self.move_down(max_child)
 
+    def peek(self):
+        if self.length > 0:
+            return self.values[0]
+        else:
+            return None
+
+    def pop(self):
+        self.length -= 1
+        self.values[0] = self.values[self.length]
+        del self.values[self.length]
+        self.move_down(0)
+
+    def get_raw_data(self):
+        return self.values

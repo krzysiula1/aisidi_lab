@@ -17,17 +17,17 @@ def get_insert_plot(times):
     plt.ylabel("Time (s)")
     plt.xticks(rotation=30, fontsize="xx-small", horizontalalignment="right")
     plt.legend()
-    plt.savefig("lab4/insert.png")
+    plt.savefig("lab4/push.png")
 
 
-def get_remove_plot(times):
-    keys, values = times["remove"]['2'].keys(), times["remove"]['2'].values()
+def get_pop_plot(times):
+    keys, values = times["pop"]['2'].keys(), times["pop"]['2'].values()
     plt.plot(keys, values, "o-", label="2-arny", ms=2)
 
-    keys, values = times["remove"]['3'].keys(), times["remove"]['3'].values()
+    keys, values = times["pop"]['3'].keys(), times["pop"]['3'].values()
     plt.plot(keys, values, "o-", label="3-arny", ms=2)
 
-    keys, values = times["remove"]['4'].keys(), times["remove"]['4'].values()
+    keys, values = times["pop"]['4'].keys(), times["pop"]['4'].values()
     plt.plot(keys, values, "o-", label="4-arny", ms=2)
 
     plt.title(label="heaps")
@@ -35,6 +35,6 @@ def get_remove_plot(times):
     plt.ylabel("Time (s)")
     plt.xticks(rotation=30, fontsize="xx-small", horizontalalignment="right")
     plt.legend()
-    plt.savefig("lab4/remove.png")
+    plt.savefig("lab4/pop.png")
 
 
