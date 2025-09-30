@@ -12,7 +12,7 @@ class Pair:
         self.second = second
 
 
-infi = 1000000000
+infi = 100000
 
 
 class Node:
